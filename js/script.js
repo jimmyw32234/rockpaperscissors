@@ -8,4 +8,8 @@
 
 
 // DOCUMENT READY FUNCTION BELOW
+$("#shoot").click(function() {
+let myChoice = $("#input").val();
+$("#result").html(myChoice);
 
+});
