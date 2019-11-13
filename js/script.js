@@ -10,6 +10,25 @@
 // DOCUMENT READY FUNCTION BELOW
 $("#shoot").click(function() {
 let myChoice = $("#input").val();
-$("#result").html(myChoice);
+$("#userChoice").html(myChoice);
+let x = computerChoice();
+$("#computerChoice").html(x);
+}
 
-});
+,);
+
+function computerChoice (){
+    let otherChoice = Math.random();
+
+if (otherChoice >= 0.66) {
+  return "rock";
+}
+ if (otherChoice < 0.66 && otherChoice > 0.33) {
+    return "paper";
+  } else if (otherChoice <= 0.33) {
+      return "scissors";
+    }
+}
+
+
+
