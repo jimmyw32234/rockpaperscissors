@@ -8,28 +8,29 @@
 
 
 // DOCUMENT READY FUNCTION BELOW
-$("#shoot").click(function() {
-let myChoice = $("#input").val();
-$("#userChoice").html(myChoice);
-let x = computerChoice();
-$("#computerChoice").html(x);
-}
-
-,);
-
-function computerChoice (){
-    let otherChoice = Math.random();
-
-if (otherChoice >= 0.66) {
-  return "rock";
-}
- if (otherChoice < 0.66 && otherChoice > 0.33) {
-    return "paper";
-  } else if (otherChoice <= 0.33) {
-      return "scissors";
+$("#shoot").click(function(){
+    let myChoice = $("#input").val().toLowerCase();
+    let randomNum = Math.random();
+    $("#userChoice").html(myChoice);
+    if(randomNum > 0.66){
+        computerResult = "rock";
+    } else if(randomNum >= 0.33 && randomNum <= 0.66){
+        computerResult = "paper";
+    } else {
+        computerResult = "scissors";
     }
-}
+    $("#computerChoice").html(computerResult);
+    if (myChoice == "rock" && computerResult == "scissors" || 
+        myChoice == "scissor" && computerResult == "paper" ||
+        myChoice == "paper" && computerResult == "rock" ) {
 
-
-
-
+        $("#result").html("win");
+    } else if (myChoice == "rock" && computerResult == "paper" || 
+                myChoice == "scissor" && computerResult == "rock" ||
+                myChoice == "paper" && computerResult == "scissor"
+               ) {
+        $("#result").html("loss");
+    }else{
+        $("#result").html("draw");
+    }
+})
